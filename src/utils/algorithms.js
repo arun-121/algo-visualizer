@@ -39,28 +39,6 @@ export const i = `void insertionSort(int arr[], int n)
     }
 }`
 
-export const si = `void sort(int a[],int n){
-  for(int i=0;i<n;i++){
-    
-    //j starts from i+1
-    //iterates till reaches n
-
-      for(int j=i+1;j<n;j++){
-
-
-        //compare jth value with ith value smaller
-         value will be swapped
-
-
-          if(a[j]<a[i]){
-              int t=a[j];
-              a[j]=a[i];
-              a[i]=t;
-          }
-      }
-  }
-}`
-
 
 export const se = `void selectionSort(int arr[], int n) 
 { 
@@ -107,11 +85,5 @@ export const comp = [
     "worstCase": "O(n^2)",
     "averageCase": "O(n^2)"
   },
-  {
-    "name": "simpleSort",
-    "description": "Simple sort (also known as naive sort) methods are generally not suitable for large datasets or performance-critical applications. They typically involve nested loops and have quadratic time complexity.",
-    "bestCase": "O(n^2)",
-    "worstCase": "O(n^2)",
-    "averageCase": "O(n^2)"
-  }
+
 ]

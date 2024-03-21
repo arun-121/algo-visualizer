@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./index.css";
 import { CodeBlock, irBlack } from "react-code-blocks";
-import { i, se, si, b, comp } from "./utils/algorithms";
+import { i, se, b, comp } from "./utils/algorithms";
 import { HStack, Box } from "@chakra-ui/react";
 function MyCoolCodeBlock({ text, comp }) {
-  console.log(comp);
   return (
-    <HStack style={{ padding: "20px", borderRadius: "0px" }}>
+    <div
+      className="details"
+      style={{ padding: "20px", display: "flex", gap: "20px" }}
+    >
       <Box
         className="shad"
         width={"100%"}
@@ -40,7 +42,6 @@ function MyCoolCodeBlock({ text, comp }) {
             flexDirection: "column",
             alignItems: "center",
             padding: "20px",
-
             borderRadius: "10px",
           }}
         >
@@ -75,11 +76,10 @@ function MyCoolCodeBlock({ text, comp }) {
           </div>
         </div>
       </Box>
-    </HStack>
+    </div>
   );
 }
 const Temp = ({ algo }) => {
-  // console.log(algo);
   switch (algo) {
     case "insertion":
       return <MyCoolCodeBlock text={i} comp={comp[0]} />;

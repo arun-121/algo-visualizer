@@ -4,12 +4,16 @@ import { HStack, Box, Button, Select, Code } from "@chakra-ui/react";
 import "./index.css";
 import Temp from "./Temp";
 function App() {
-  const [size, setSize] = useState(30);
+  const [size, setSize] = useState(20);
   const [arr, setArr] = useState(generator(size));
   const [algo, setAlgo] = useState(null);
   const [compareIndices, setCompareIndices] = useState([]);
 
-  const bubbleSort = (arr, setArr, setCompareIndices) => {
+  const bubbleSort = () => {
+    // if (JSON.stringify(arr) == JSON.stringify(arr.sort((a, b) => a - b))) {
+    //   console.log("already sorted");
+    //   return;
+    // }
     let animations = [];
     for (let i = 0; i < arr.length - 1; i++) {
       for (let j = 0; j < arr.length - i - 1; j++) {
@@ -24,22 +28,23 @@ function App() {
       setTimeout(() => {
         setCompareIndices([i, j]);
         if (arr[i] > arr[j]) {
-          // Swap elements
           let temp = arr[i];
           arr[i] = arr[j];
           arr[j] = temp;
-
           setArr([...arr]);
         }
       }, index * 300);
     });
   };
   const insertionSort = () => {
+    console.log(arr);
     for (let i = 1; i < arr.length; i++) {
       let current = arr[i];
       let j = i - 1;
       setTimeout(() => {
         while (j >= 0 && arr[j] > current) {
+          setCompareIndices([i, j]);
+          console.log(arr[j], ">", current);
           arr[j + 1] = arr[j];
           j--;
         }
@@ -47,12 +52,12 @@ function App() {
 
         setTimeout(() => {
           setArr([...arr]);
-        }, i * 500);
-      }, i * 1000);
+        }, i * 300);
+      }, i * 600);
     }
   };
 
-  const simplesort = () => {
+  const selection = () => {
     let newArr = [...arr];
     let steps = [];
     // Generate sorting steps
@@ -81,19 +86,25 @@ function App() {
     <>
       {" "}
       <div
+        className="container"
         style={{
           width: "100%",
-          // height: "100vh",
+
           overflow: "hidden",
           padding: "30px",
         }}
       >
-        <HStack
-          className="container"
-          spacing={4}
-          alignItems="flex-start"
-          justifyContent="center"
-          style={{ backgroundColor: "black", padding: "30px", color: "cyan" }}
+        <div
+          className="menu"
+          style={{
+            backgroundColor: "black",
+            padding: "30px",
+            color: "cyan",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "40px",
+          }}
         >
           <Box>
             <Select
@@ -111,9 +122,6 @@ function App() {
               </option>
               <option style={{ color: "black" }} value="bubble">
                 Bubble
-              </option>
-              <option style={{ color: "black" }} value="simple">
-                simple
               </option>
             </Select>
           </Box>
@@ -154,13 +162,11 @@ function App() {
                   case "insertion":
                     insertionSort(arr, setArr, setCompareIndices);
                     break;
-                  case "selection":
-                    break;
                   case "bubble":
                     bubbleSort(arr, setArr, setCompareIndices);
                     break;
-                  case "simple":
-                    simplesort();
+                  case "selection":
+                    selection();
                     break;
                 }
               }
@@ -169,8 +175,9 @@ function App() {
           >
             Sort
           </Button>
-        </HStack>
+        </div>
         <div
+          className="bars"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -184,14 +191,12 @@ function App() {
                 key={i}
                 width="30px"
                 height={`${e + 20}px`}
-                bg={
-                  compareIndices.includes(i) ? "yellowgreen" : "rgb(0, 43, 54)"
-                }
+                bg={compareIndices.includes(i) ? "red" : "cyan"}
                 border="px solid white"
                 textAlign="center"
-                color={"white"}
+                color={"black"}
                 margin="2px"
-                transition="background 0.3s"
+                transition="background .3s"
               >
                 {e}
               </Box>
