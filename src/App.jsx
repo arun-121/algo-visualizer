@@ -3,6 +3,7 @@ import generator from "./utils/generator";
 import { HStack, Box, Button, Select, Code } from "@chakra-ui/react";
 import "./index.css";
 import Temp from "./Temp";
+
 function App() {
   const [size, setSize] = useState(20);
   const [arr, setArr] = useState(generator(size));
@@ -10,10 +11,6 @@ function App() {
   const [compareIndices, setCompareIndices] = useState([]);
 
   const bubbleSort = () => {
-    // if (JSON.stringify(arr) == JSON.stringify(arr.sort((a, b) => a - b))) {
-    //   console.log("already sorted");
-    //   return;
-    // }
     let animations = [];
     for (let i = 0; i < arr.length - 1; i++) {
       for (let j = 0; j < arr.length - i - 1; j++) {

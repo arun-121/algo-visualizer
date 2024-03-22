@@ -2,6 +2,7 @@
 html {
     background-color: rgb(0, 0, 0);
     /* color: rgb(255, 255, 255); */
+
 }
 
 * {
@@ -20,6 +21,19 @@ html {
     background: transparent;
 
 }
+
+
+.details {
+    display: flex;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.hide {
+    display: none;
+}
+
 
 @media screen and (max-width:600px) {
 
@@ -42,5 +56,16 @@ html {
 
     .details {
         flex-direction: column;
+
+    }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
