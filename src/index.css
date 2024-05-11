@@ -5,6 +5,8 @@ html {
 
 }
 
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,7 +27,7 @@ html {
 
 .details {
     display: flex;
-    animation: fadeInAnimation ease 2s;
+    animation: fadeInAnimation 2s ease;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -49,7 +51,7 @@ html {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /* width: 100%; */
+
         height: auto;
         display: none;
     }
@@ -68,4 +70,19 @@ html {
     100% {
         opacity: 1;
     }
+}
+
+
+@keyframes rotate360 {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.rotating-element {
+    animation: rotate360 4s linear infinite;
 }

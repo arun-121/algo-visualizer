@@ -1,10 +1,10 @@
 export const b = `void bubbleSort(int array[], int size) {
 
     // loop to access each array element
-    for (int step = 0; step < size; ++step) {
+    for (int step = 0; step < size-1; ++step) {
         
       // loop to compare array elements
-      for (int i = 0; i < size - step; ++i) {
+      for (int i = 0; i < size - step-1; ++i) {
   
         // compare two adjacent elements
         // change > to < to sort in descending order
@@ -63,7 +63,7 @@ export const se = `void selectionSort(int arr[], int n)
     } 
 }`
 
-export const comp = [
+export const algoDescription = [
   {
     "name": "insertionSort",
     "description": "Insertion sort iterates over an array, removing one element from the input data, finds the location it belongs to in the already-sorted part of the array, and shifts the larger elements to the right.",
