@@ -15,7 +15,7 @@ import {
 import { SendHorizontal } from "lucide-react";
 import { CodeBlock, irBlack } from "react-code-blocks";
 import { useState, useRef } from "react";
-
+import gemini from "../public/gemini.png";
 import "./index.css";
 import run from "./utils/chat";
 const ChatContainer = () => {
@@ -30,7 +30,7 @@ const ChatContainer = () => {
     setQuery(prompt);
     setIsFetching(true);
     run(query)
-      .then((d) => setRes([...res, d]))
+      .then((d) => setRes([d, ...res]))
       .then(() => setIsFetching(false))
       .catch(() => setIsFetching(false));
   };
@@ -40,9 +40,9 @@ const ChatContainer = () => {
       <Button ref={btnRef} onClick={onOpen} style={{ background: "none" }}>
         <img
           className="rotating-element"
-          src={"https://tm.ibxk.com.br/2024/02/09/09153200443317.jpg"}
-          width={"100px"}
-          height={"100px"}
+          src={gemini}
+          width={"60px"}
+          height={"60px"}
         />
       </Button>
       <Drawer
@@ -81,7 +81,7 @@ const ChatContainer = () => {
               </Button>
             </div>
             <div>
-              {res.reverse().map((e, i) => (
+              {res.map((e, i) => (
                 <div
                   key={i}
                   style={{
@@ -94,14 +94,7 @@ const ChatContainer = () => {
                     marginBottom: "10px",
                   }}
                 >
-                  <img
-                    src={
-                      "https://seeklogo.com/images/G/google-bard-logo-2D24045D5B-seeklogo.com.png"
-                    }
-                    alt=""
-                    width={"20px"}
-                    height={"10px"}
-                  />
+                  <img src={gemini} alt="" width={"20px"} height={"10px"} />
                   <Text color="black" fontSize="sm">
                     {e}
                   </Text>

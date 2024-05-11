@@ -26,6 +26,7 @@ async function run(message) {
 
     const result = await chat.sendMessage(msg);
     console.log(result.response.text());
+
     return result.response.text();
 
 
