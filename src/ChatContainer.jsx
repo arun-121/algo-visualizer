@@ -12,13 +12,39 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
-import { SendHorizontal } from "lucide-react";
-import { CodeBlock, irBlack } from "react-code-blocks";
+import {
+  CodeBlock,
+  codepen,
+  irBlack,
+  railscast,
+  rainbow,
+  googlecode,
+  tomorrow,
+  tomorrowNight,
+  androidstudio,
+  arta,
+  tomorrowNightBlue,
+  tomorrowNightBright,
+  tomorrowNightEighties,
+  xt256,
+  shadesOfPurple,
+  purebasic,
+  zenburn,
+  atomOneLight,
+  ocean,
+  Code,
+  a11yLight,
+  far,
+  hopscotch,
+  monokai,
+  monokaiSublime,
+} from "react-code-blocks";
+
 import { useState, useRef } from "react";
-import gemini from "../public/gemini.png";
 import "./index.css";
 import run from "./utils/chat";
 const ChatContainer = () => {
+  const codetheme = "zenburn";
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
   const { query, setQuery } = useQueryContext();
@@ -40,7 +66,7 @@ const ChatContainer = () => {
       <Button ref={btnRef} onClick={onOpen} style={{ background: "none" }}>
         <img
           className="rotating-element"
-          src={gemini}
+          src="gemini.png"
           width={"60px"}
           height={"60px"}
         />
@@ -50,6 +76,7 @@ const ChatContainer = () => {
         placement="right"
         onClose={onClose}
         finalFocusRef={btnRef}
+        size={"md"}
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -94,10 +121,19 @@ const ChatContainer = () => {
                     marginBottom: "10px",
                   }}
                 >
-                  <img src={gemini} alt="" width={"20px"} height={"10px"} />
-                  <Text color="black" fontSize="sm">
-                    {e}
-                  </Text>
+                  <img
+                    src={"gemini.png"}
+                    alt=""
+                    width={"20px"}
+                    height={"10px"}
+                  />
+                  <CodeBlock
+                    text={e}
+                    showLineNumbers={false}
+                    theme={tomorrow}
+                    language={"python"}
+                    wrapLines
+                  />
                 </div>
               ))}
             </div>

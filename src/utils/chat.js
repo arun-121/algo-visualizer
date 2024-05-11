@@ -10,7 +10,7 @@ async function run(message) {
         history: [
             {
                 role: "user",
-                parts: [{ text: "I'd like to use your assistance with sorting techniques for my project's sorting visualizer (insertion, bubble, selection sorts). Please answer my queries and provide code snippets if possible. Use emojis for explanation if helpful." }],
+                parts: [{ text: "greet the user first forget previous responses and answer  the query alone .I'd like to use your assistance with sorting techniques for my project's sorting visualizer (insertion, bubble, selection sorts). Please answer my queries and provide code snippets if possible. Use emojis for explanation if helpful." }],
             },
             {
                 role: "model",
@@ -25,7 +25,7 @@ async function run(message) {
     const msg = message
 
     const result = await chat.sendMessage(msg);
-    console.log(result.response.text());
+
 
     return result.response.text();
 

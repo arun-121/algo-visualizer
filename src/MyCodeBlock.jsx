@@ -1,4 +1,15 @@
-import { CodeBlock, irBlack } from "react-code-blocks";
+import {
+  CodeBlock,
+  codepen,
+  irBlack,
+  railscast,
+  rainbow,
+  tomorrow,
+  tomorrowNight,
+  tomorrowNightBlue,
+  tomorrowNightBright,
+  tomorrowNightEighties,
+} from "react-code-blocks";
 import { Box } from "@chakra-ui/react";
 const MyCodeBlock = ({ text, algoDescription, className }) => {
   return (
