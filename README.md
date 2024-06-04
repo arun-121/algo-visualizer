@@ -1,8 +1,17 @@
-# React + Vite
+# Sorting Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+#### • Helps visualize how sorting is done
+#### • Integrated gemini api to help with user queries
+#### • Bubble sort
+#### • Insertion sort
+#### • Selection sort
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+#### • React 
+#### • Chakra UI
+
+
+# Demo
+
+[visualizer](https://arun-121.github.io/sorting-visualizer/)
